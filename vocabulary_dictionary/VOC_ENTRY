@@ -50,6 +50,9 @@
 3019	PDF
 3020	XLSX
 3021	FunctionObject	declare function
+3022	CSV
+3023	TSV
+3024	MPEG
 5001	energy
 5002	tempalature
 5003	coulomb
