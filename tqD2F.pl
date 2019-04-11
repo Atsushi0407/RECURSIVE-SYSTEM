@@ -1,4 +1,4 @@
-#!/usr/bin/env perl
+#!/bin/env perl
 $file = $ARGV[0];
 $head = "";
 %rls = ();

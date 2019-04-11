@@ -5,6 +5,7 @@
 #include "../RECURSIVE-SYSTEM/T-definition.h"
 #include "../RECURSIVE-SYSTEM/T-structure.h"
 #include "../RECURSIVE-SYSTEM/T-functions.h"
+#include "../RECURSIVE-SYSTEM/T-functions_imex-branch.h"
 #include "../RECURSIVE-SYSTEM/T-functions_imex.h"
 
 const char cdate[] = __DATE__;
@@ -99,7 +100,6 @@ struct search_options *alloc_search_options(void){
 	}
 	return(p);
 }
-
 
 /* initialize */
 void init_options(struct options *opt){
@@ -378,7 +378,6 @@ int main(int argc, char **argv){
 	struct Tree *top;
 	int node_count = 0;
 	top = Create_Node(0,BUFF_LEN);
-	c = 1;
 	c = import_Tree(IN,top,opt,_fopt,_copt,_sopt,&node_count);	// @ T-import_export.h
 
 	/* close file */

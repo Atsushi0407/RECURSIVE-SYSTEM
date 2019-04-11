@@ -1,12 +1,13 @@
-/* include into T-functions_imex.h */
-			/* search */
-			//struct Tree *hit_tree;
-			if((*_sopt).s_counter){
+			/* include into T-functions_imex.h */
+		void Executor(struct Tree *top, struct Tree *null_node, int C, int SN, struct options *_opt, struct function_options *_fopt, struct compile_options *_copt, struct search_options *_sopt){
+			/* for search */
+		        struct Tree *hit_tree;
+		        struct Tree *hit_node;
+			if((*_sopt).s_counter > 0){
 				hit_node = get_node((*_sopt).pos,top);
 				if(hit_node == NULL){
 					hit_tree = null_node;
 				}else{
-					//hit_tree = Copy_Node(hit_tree,hit_node);
 					hit_tree = hit_node;
 				}
 			}else{
@@ -62,20 +63,18 @@
 			if((*_fopt).f_print_X == 1){
 				ExFunction_Recursive_Ser_MultiPrint(hit_tree, (struct Tree *(*)())Function_Print_Conj_X, (struct Tree *(*)())Function_Print_Head_X, (struct Tree *(*)())Function_Print_Bopen_X,  (struct Tree *(*)())Function_Print_Bclose_X, _fopt, _copt, SN);
 				if(C == LF && (*_copt).c_restrict == 1){
-					//printf(";");
+					//printf("");
 				}
 				if(C == LF || C == TAB){
 					printf("%c",C);
 				}
 			}
-
 			if((*_fopt).f_print_J == 1){
 				ExFunction_Recursive_Ser_MultiPrint(hit_tree, (struct Tree *(*)())Function_Print_Conj_JS, (struct Tree *(*)())Function_Print_Head_JS, (struct Tree *(*)())Function_Print_Bopen_JS,  (struct Tree *(*)())Function_Print_Bclose_WL,  _fopt, _copt, SN);
 				if(C == LF || C == TAB){
 					printf("%c",C);
 				}
 			}
-
 
 			/* apply status print */
                         if((*_fopt).f_print_status == 1){
@@ -91,11 +90,10 @@
 				printf("\n");
                         }
 
-
 			/* apply conjugation-table print */
                         if((*_fopt).f_print_Ma == 1){
 				ExFunction_Recursive_Ser(hit_tree,(struct Tree *(*)())Function_Print_Adj,_fopt,_copt,SN);
 				printf("\n");
                         }
-
+		}
 
