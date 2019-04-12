@@ -1,4 +1,6 @@
 #!/usr/bin/env perl
+use FindBin;
+$wd = $FindBin::Bin;
 $file = $ARGV[0];
 $head = "";
 %rls = ();
@@ -27,7 +29,7 @@ while($l !~ /^\$M\$/ && $ct <= $ctmax){
 	$ct++;
 }
 if(length($l) > 0){
-	$comm = "echo '".$l."'"." | ./tq.o -C -FC in=/dev/stdin";
+	$comm = "echo '".$l."'"." | ".$wd."/tq.o -C -FC in=/dev/stdin";
 	$exe = `$comm`;
 	$exe =~ s/\s*$//;
 	$script = join("\n",@script);

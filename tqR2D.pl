@@ -1,4 +1,6 @@
 #!/usr/bin/env perl
+use FindBin;
+$wd = $FindBin::Bin;
 $file = $ARGV[0];
 $head = "";
 %rls = ();
@@ -36,7 +38,7 @@ if( "$rls{'$X$Application'}" eq '$X$Mathematica' ){
 	print DATA "cat ".$fedfile." | "."math";
 	close(DATA);
 	# create metacomannd
-	$meta '$M$./tq.o ($-FW,',$copt.')';
+	$meta = '$M$'.$wd.'/tq.o ($-FW,'.$copt.')';
 	print $meta;
 	print "\n";
 	print '$X$Get($`~/gitsrc/MATH_SCRIPT/SCRIPTS/DataFederation.m)';
